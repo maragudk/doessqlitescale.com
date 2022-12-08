@@ -1,3 +1,11 @@
+.PHONY: build
+build: clean
+	go run .
+
+.PHONY: clean
+clean:
+	rm -rf _site
+
 .PHONY: cover
 cover:
 	go tool cover -html=cover.out
