@@ -21,8 +21,9 @@ copy-assets: copy-sqlite
 copy-sqlite: sqlite.zip
 	mkdir -p _site
 	unzip sqlite.zip
-	mv sqlite-wasm-*/jswasm/sqlite3.{js,wasm} _site
-	rm -rf sqlite-wasm-*
+	mv sqlite-wasm-3400000/jswasm/sqlite3.js _site
+	mv sqlite-wasm-3400000/jswasm/sqlite3.wasm _site
+	rm -rf sqlite-wasm-3400000
 
 .PHONY: cover
 cover:
