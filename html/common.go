@@ -14,6 +14,7 @@ func Page(body ...g.Node) g.Node {
 		Head: []g.Node{
 			Script(Src("https://cdn.tailwindcss.com?plugins=forms,typography")),
 			Script(Src("wasm_exec.js")),
+			Script(Src("sqlite3.js")),
 			Script(Src("app.js")),
 		},
 		Body: []g.Node{Class("dark:bg-gray-900"),
