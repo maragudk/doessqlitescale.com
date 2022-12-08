@@ -12,10 +12,17 @@ clean:
 	rm -rf _site
 
 .PHONY: copy-assets
-copy-assets:
+copy-assets: copy-sqlite
 	mkdir -p _site
 	cp `go env GOROOT`/misc/wasm/wasm_exec.js _site/
 	cp public/* _site/
+
+.PHONY: copy-sqlite
+copy-sqlite: sqlite.zip
+	mkdir -p _site
+	unzip sqlite.zip
+	mv sqlite-wasm-*/jswasm/sqlite3.{js,wasm} _site
+	rm -rf sqlite-wasm-*
 
 .PHONY: cover
 cover:
@@ -24,6 +31,10 @@ cover:
 .PHONY: lint
 lint:
 	golangci-lint run
+
+sqlite.zip:
+	curl -sLO https://sqlite.org/2022/sqlite-wasm-3400000.zip
+	mv sqlite-wasm-3400000.zip sqlite.zip
 
 .PHONY: start
 start: build
