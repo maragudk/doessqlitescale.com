@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"os"
+
+	"doessqlitescale/html"
 )
 
 func main() {
@@ -19,18 +21,16 @@ func start() error {
 
 	log.Println("Building")
 
-	if err := os.Mkdir("_site", 0755); err != nil {
-		return err
-	}
-
 	f, err := os.Create("_site/index.html")
 	if err != nil {
 		return err
 	}
 
-	if _, err := f.WriteString("<html><head><title>doessqlitescale.com</title></head><body><h1>Does SQLite scale?</h1></body></html>"); err != nil {
+	if err := html.HomePage().Render(f); err != nil {
 		return err
 	}
+
+	log.Println("Built")
 
 	return nil
 }

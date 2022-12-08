@@ -1,4 +1,4 @@
-# Does SQLite Scale?
+# Does SQLite Scale?!
 
 Go to [www.doessqlitescale.com](https://www.doessqlitescale.com) and find out!
 
