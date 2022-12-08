@@ -9,6 +9,10 @@ func HomePage() g.Node {
 	return Page(
 		H1(g.Text(`Does SQLite Scale?!`)),
 		P(Class("lead"), g.Text(`Let's find out!`)),
-		P(g.Raw(`<a href="https://github.com/maragudk/doessqlitescale.com">See the source for this page at github.com/maragudk/doessqlitescale.com</a>`)),
+
+		Footer(Class("mt-32 prose-sm"),
+			P(g.Raw(`<a href="https://github.com/maragudk/doessqlitescale.com">Source on Github</a>`)),
+			P(g.Raw(`Made in 🇩🇰 by <a href="https://www.maragu.dk/">maragu</a>, maker of <a href="https://www.golang.dk/">online Go courses</a>.`)),
+		),
 	)
 }
