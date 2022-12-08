@@ -35,7 +35,7 @@ jobs:
         uses: actions/configure-pages@v2
 
       - name: Build
-        run: go run .
+        run: make build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
